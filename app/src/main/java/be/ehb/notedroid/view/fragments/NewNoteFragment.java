@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import be.ehb.notedroid.R;
@@ -41,6 +42,8 @@ public class NewNoteFragment extends Fragment {
                     String content = binding.etNewContent.getText().toString();
                     Note note = new Note(title, content);
                     viewModel.insertNote(note);
+
+                    Navigation.findNavController(view).navigateUp();
                 }
         );
     }

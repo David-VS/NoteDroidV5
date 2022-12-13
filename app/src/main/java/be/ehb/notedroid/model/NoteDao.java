@@ -14,7 +14,7 @@ public interface NoteDao {
     @Insert
     void insertNote(Note note);
 
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM Note ORDER BY dateModified DESC")
     LiveData<List<Note>> getAllNotes();
 
     @Update
