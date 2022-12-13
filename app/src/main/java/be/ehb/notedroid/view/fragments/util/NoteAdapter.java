@@ -1,5 +1,6 @@
 package be.ehb.notedroid.view.fragments.util;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -32,6 +34,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
             row.setOnClickListener((View v)->{
                 Log.d("ROW", tvTitle.getText().toString());
+
+                Note n = items.get(getAdapterPosition());
+
+                Bundle data = new Bundle();
+                data.putSerializable("note", n);
+                Navigation.findNavController(itemView).navigate(R.id.action_FirstFragment_to_detailsFragment, data);
             });
         }
     }

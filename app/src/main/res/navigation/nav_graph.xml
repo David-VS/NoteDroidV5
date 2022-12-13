@@ -14,10 +14,21 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="be.ehb.notedroid.view.fragments.NewNoteFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_new_note" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="be.ehb.notedroid.view.fragments.DetailsFragment"
+        android:label="@string/app_name" >
+        <argument
+            android:name="note"
+            app:argType="be.ehb.notedroid.model.Note" />
+    </fragment>
 </navigation>
